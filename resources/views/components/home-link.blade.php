@@ -1,0 +1,1 @@
+<a href="{{ route('home') }}" class="mx-4 text-lg hover:text-indigo-500">Home</a>
