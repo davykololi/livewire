@@ -1,4 +1,3 @@
-<div class="mt-1">
-    <h1 class="text-center uppercase font-bold text-purple-800 hover:text-purple-400">{{ config('app.name')}} Authors</h1>
+<div class="py-1 w-full h-screen bg-pink-600 px-8">
+    <h1 class="text-center uppercase font-bold text-white hover:text-purple-400">Authors</h1>
 </div>
-

@@ -8,11 +8,29 @@ use Livewire\Component;
 
 class ListPost extends Component
 {
+    public $is_published = false;
 	use WithPagination;
+
+    protected $listeners = [
+        'deletePost'=>'destroy'
+    ];
 
     public function render()
     {	
-    	$posts = auth()->user()->posts()->latest()->published()->paginate(10);
-        return view('livewire.author.list-post',['posts'=>$posts])->extends('layouts.author')->section('content');
+    	$posts = Post::with('category','user')->latest()->published()->paginate(10);
+    	
+        return view('livewire.author.list-post',['posts'=>$posts])->layout('layouts.author');
+    }
+
+    public function destroy($id)
+    {
+    	$post = Post::findOrFail($id);
+        if($post){
+            $post->delete();
+            //Set Flash Message
+            toastr()->success('Post Deleted Successfully!!');
+
+            return redirect()->to('author/posts');
+        }
     }
 }

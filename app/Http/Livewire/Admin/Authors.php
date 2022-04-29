@@ -24,7 +24,7 @@ class Authors extends Component
     public function render()
     {
     	$this->authors = User::whereRole('author')->latest()->get();
-        return view('livewire.admin.authors')->extends('layouts.admin')->section('content');
+        return view('livewire.admin.authors')->layout('layouts.admin');
     }
 
     public function resetFields()

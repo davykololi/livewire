@@ -1,22 +1,29 @@
-{{-- tall-blog/resources/views/livewire/post-item.blade.php --}}
-<article class="flex flex-col mb-2 rounded-md shadow-md md:mb-0">
-    <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">
-        <img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-56 rounded-t-md">
-    </a>
-    <div class="p-3 shadow-lg">
-        <h3 class="text-lg font-semibold text-gray-900 text-purple-500 lg:hover:text-green-800">
-            <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">{{ $post->title }}</a>
-        </h3>
-        <p class="text-gray-800">
-            <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">{{ $post->excerpt }}</a>
-        </p>
-        <div class="flex flex-row justify-between mt-2">
-            <a href="{{ route('category', ['slug' => $post->category->slug]) }}" class="px-2 text-sm text-indigo-900 bg-indigo-100 rounded">
-                {{ $post->category->name }}
-            </a>
-            <small>
-                {{ $post->pubDate() }}
-            </small>
-        </div>
-    </div>
-</article>
+        <main class="p-2 m-0 mt-2 lg:w-2/3 shadow-2xl rounded-md border border-red border-2 lg:ml-8 lg:mt-3 w-screen ml-2 mr-2 mb-2 bg-white mix-blend-normal">
+            <article class="lg:ml-6 mx-auto">
+                <figure>
+                    <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">
+                        <img class="lg:w-3/4 lg:h-auto lg:hover:opacity-70" src="{{ asset('static/kagwe.jpg')}}" alt="{{ $post->title }}"/>
+                    </a>
+                    <figcaption>
+                        <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">
+                            <h2 class="font-bold text-xl mb-2 mt-2 text-red-900 md:hover:text-indigo-500">{{ $post->title }}</h2>
+                        </a>
+                    </figcaption>
+                </figure>
+                <div class="my-2 justify-between inline-flex">
+                    <span>{{ $post->user->name }}</span> <span>{{ $post->created_at }}</span> 
+                    @if(!empty($post->comments))
+                    <span>{{ $post->comments->count() }} comments</span>
+                        @endif
+                </div>
+                <p class="text-gray-700 text-base leading-tight">
+                    {{ $post->excerpt() }} 
+                    <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">
+                        <button type="button" class="w-full text-center bg-transparent text-red-900 rounded-md md:hover:bg-red-400 md:hover:text-white lg:px-4 inline-block py-4 mt-2">
+                            Read More
+                        </button>
+                    </a>
+                </p>
+                @include('frontend.post_tags')
+            </article>
+        </main>

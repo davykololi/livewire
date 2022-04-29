@@ -11,7 +11,7 @@ class PostItem extends Component
 
 	public function mount()
 	{
-		$this->post = Post::where('is_published',true)->firstOrFail();
+		$this->post = Post::where('is_published',true)->withCount('comments')->firstOrFail();
 	}
 	
     public function render()

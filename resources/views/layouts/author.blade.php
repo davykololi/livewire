@@ -5,27 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
-
+        <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
         <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
         <!-- ========== Favicon Icon ========== -->
         <link rel="shortcut icon" href="{{ asset('static/logo.png') }}" type="image/x-icon">
+        <!-- Toastr CSS -->
+        @toastr_css
 
         @livewireStyles
     </head>
-    <body>
+    <body class="flex flex-col min-h-screen">
         <x-author-nav/>
         <x-auth-dashboard/>
         <div class="font-sans text-gray-900 antialiased">
-            @yield('content')
+            {{ $slot }}
         </div>
+        <x-backend-footer/>
         @livewireScripts
         <!-- Scripts -->
+        <script>
+            Livewire.on('deletePost',id => {
+                alert(Are you sure to delete the post: + id);
+            })
+        </script>
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <!--Toastr Scripts -->
+        @jquery
+        @toastr_js
+        @toastr_render
     </body>
 </html>

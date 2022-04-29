@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
-use Auth;
 use App\Models\Category;
 use Livewire\Component;
 
@@ -26,7 +25,7 @@ class Categories extends Component
     {
     	$this->categories = Category::select('id','name','description','keywords')->get();
         
-        return view('livewire.admin.categories')->extends('layouts.admin')->section('content');
+        return view('livewire.admin.categories')->layout('layouts.admin');
     }
 
     public function resetFields(){

@@ -11,11 +11,10 @@
                 @endif
                 <x-jet-label for="photo" class="flex items-center justify-center text-3xl border-2 border-dashed rounded-sm w-3/3 h-60 bg-gray-50">
                 {{ __('Choose image') }}
-                <x-jet-input type="file" id="photo" accept="jpg,png,gif"
-                wire:model="photo" class="w-0 h-0"/>
+                <x-jet-input type="file" id="photo" accept="jpg,png,gif" wire:model="photo" class="w-0 h-0"/>
                 </x-jet-label>
                 <x-jet-input-error for="photo" />
-                </div>
+            </div>
             <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                 <x-jet-button class="inline-flex justify-center">
                     {{ __("Upload") }}

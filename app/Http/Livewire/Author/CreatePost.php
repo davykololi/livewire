@@ -5,14 +5,13 @@ namespace App\Http\Livewire\Author;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
-use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class CreatePost extends Component
 {
 	use WithFileUploads;
-	public $title,$description,$content,$caption,$keywords,$image,$category_id,$post_id,$tags;
+	public $title,$description,$content,$caption,$keywords,$image,$category_id,$categories=[],$tags=[];
 	public $success = false;
 	public $featured = false;
 	public $is_published = false;
@@ -41,46 +40,44 @@ class CreatePost extends Component
         'max' => 'Maximum value is 255 chars'
     ];
 
-	public function togglePublished()
-	{
-		$this->is_published = !$this->is_published;
-	}
-
 	public function successfull()
 	{
 		$this->success = true;
 	}
 
+	public function togglePublished()
+    {
+        $this->is_published = !$this->is_published;
+    }
+
 	public function save()
 	{
-		$this->validate();
-		Post::create([
-			'title'=>$this->title,
-			'slug'=> Str::slug($this->title),
-			'caption'=>$this->caption,
-			'content'=>$this->content,
-			'description'=>$this->description,
-			'keywords'=>$this->keywords,
-			'is_published'=> $this->is_published,
-			'user_id'=>auth()->id,
-			'category_id'=>$this->category_id,
-			'published_date' => now(),
-			'published_by' => $this->published_by,
-			'tags'=>$this->tags,
-		]);
-		//Set Flash Message
-    		session()->flash('success','Post Created Successfully!!');
+		$data = $this->validate();
+		$data['is_published'] = $this->is_published;
+		$data['user_id'] = auth()->id;
+		$data['category_id'] = $this->category_id;
+		$data['published_date'] = now();
+		$file_name = $this->image->store('files','public');
+		$data['image'] = $file_name;
+		$post = Post::create(clean($data));
+
+		if($post){
+			$post->tags()->sync($this->tags);
+			//Set Flash Message
+    		toastr()->success('Post Created Successfully!!');
 			$this->successfull();
 			$this->reset();
 
-			redirect()->to('author/posts');
+			return redirect()->to('/author/posts');
+		}
+        
 	}
 
     public function render()
     {
-    	$categories = Category::all();
-    	$allTags = Tag::all()->pluck('name','id');
+    	$this->categories = Category::all();
+    	$this->tags = Tag::all()->pluck('name','id');
 
-        return view('livewire.author.create-post',['categories'=>$categories,'allTags'=>$allTags])->extends('layouts.author')->section('content');
+        return view('livewire.author.create-post')->layout('layouts.author');
     }
 }
