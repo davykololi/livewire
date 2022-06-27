@@ -32,4 +32,9 @@ class Tag extends Model
 
         return $this->belongsToMany(Post::class)->withTimestamps();
     }
+
+    public function scopeEagerLoaded($query)
+    {
+        return $query->with('posts');
+    }
 }

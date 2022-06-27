@@ -19,7 +19,7 @@ class CategoryPosts extends Component
     public function mount($slug)
     {
     	$category = Category::where('slug',$slug)->firstOrFail();
-    	$this->posts = $category->posts()->where('is_published',true)->get();
+    	$this->posts = $category->posts()->where('is_published',true)->latest()->get();
     	$title = $category->name;
     	$desc = $category->description;
     	$keywords = $category->keywords;

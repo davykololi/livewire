@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <!-- ========== Favicon Icon ========== -->
         <link rel="shortcut icon" href="{{ asset('static/logo.png') }}" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
         <!-- Toastr CSS -->
         @toastr_css
 
@@ -33,6 +34,8 @@
             })
         </script>
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        @stack('scripts')
         <!--Toastr Scripts -->
         @jquery
         @toastr_js

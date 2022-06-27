@@ -21,6 +21,7 @@ class Post extends Model
     protected $table = 'posts';
     protected $dates = ['published_at']; 
     protected $fillable = ['title','image','caption','content','description','keywords','is_published','user_id','category_id','slug','published_date','published_by'];
+    protected $appends = ['createdDate'];
     const EXCERPT_LENGTH = 100;
 
     public function sluggable(): array
@@ -80,5 +81,20 @@ class Post extends Model
     public function scopePublished($query)
     {
         return $query->where('is_published', true);
+    }
+
+    public function imageUrl()
+    {
+        return url('/storage/storage/files/'.$this->image);
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
+    public function postDetails()
+    {
+        return route('post-detail',$this->slug);
     }
 }

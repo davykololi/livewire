@@ -45,7 +45,7 @@
                         <select name="category_id" wire:model="category_id" class="p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-full">
                             <option value="">{{ __('Select Category') }}</option>
                             @foreach($categories as $category)
-                            <option value="{{ $category->id}}" {{ $category->id === old('category_id') ? 'selected' : ''}}>
+                            <option value="{{ $category->id }}" {{ $category->id === old('category_id') ? 'selected' : ''}}>
                                 {{ $category->name }}
                             </option>
                             @endforeach
@@ -54,11 +54,7 @@
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <x-jet-label for="tags" class="block text-sm font-medium text-gray-700 font-bold">{{ __("Tags") }}</x-jet-label>
-                        <select name="tags" wire:model="tags" class="p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-full" multiple>
-                            
-                            
-                            
-                        </select>
+                        {!! Form::select('tags[]',$tags,old('tags'),['class'=>'p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-full','multiple'=>'multiple']) !!}
                         <x-jet-input-error for="tags"/>
                     </div>
                 </div>
@@ -77,10 +73,11 @@
                         <x-jet-input-error for="keywords"/>
                     </div>
                     <div class="col-span-6 mt-4 sm:col-span-1">
-                        <x-jet-label class="text-sm font-medium text-gray-700 font-bold">
-                            <x-jet-input wire:click="togglePublished" type="checkbox" class="form-checkbox"/>{{ __("Publish") }}
+                        <x-jet-label class="text-sm font-medium text-gray-700">
+                            <x-jet-input wire:model="is_published" type="checkbox" class="form-checkbox" />
+                            {{ __("Publish") }}
                         </x-jet-label>
-                        <x-jet-input-error for="is_published"/>
+                        <x-jet-input-error for="is_published" />
                     </div>
                 </div>
             </div>
@@ -90,3 +87,4 @@
         </div>
     </form>
 </div>
+

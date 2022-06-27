@@ -17,7 +17,7 @@ class ShowPosts extends Component
 
     public function mount()
     {
-        $this->posts = Post::where('is_published', true)->get();
+        $this->posts = Post::where('is_published', true)->latest()->get();
         $app_name = config('app.name');
         $title = 'Home';
         $desc = 'The platform for laravel, vue js, react js, tailwind css and bootstrap tutorials and other latest programming online tutorials';

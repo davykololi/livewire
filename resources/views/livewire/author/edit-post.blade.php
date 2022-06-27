@@ -2,14 +2,14 @@
     <h1 class="text-xl font-semibold uppercase text-white">Edit post</h1>
     @can('isAuthor')
         <div class="mb-5 text-right">
-            <a href="{{ url('author/posts') }}" class="px-4 py-0 text-white text-center bg-blue-600 rounded-full shadow-lg uppercase font-extrabold border-2 hover:bg-purple-500">
+            <a href="{{ url('author/posts') }}" class="px-4 py-0 text-white text-center bg-blue-400 rounded-full shadow-lg uppercase font-extrabold border-2 hover:bg-purple-500">
                 Back
             </a>
         </div>
     @endcan
     <form wire:submit.prevent="update" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" wire:model="postId">
+        <input type="hidden" wire:model="post_id">
         <div class="overflow-hidden bg-white rounded-md shadow">
             <div class="px-4 py-3 space-y-8 sm:p-6">
                 <div class="grid grid-cols-6 gap-6">

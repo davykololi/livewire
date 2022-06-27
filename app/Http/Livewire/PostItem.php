@@ -9,7 +9,7 @@ class PostItem extends Component
 {
 	public $post;
 
-	public function mount()
+	public function mount($id)
 	{
 		$this->post = Post::where('is_published',true)->withCount('comments')->firstOrFail();
 	}

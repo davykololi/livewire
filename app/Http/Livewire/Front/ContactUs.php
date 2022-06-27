@@ -24,10 +24,10 @@ class ContactUs extends Component
 	];
 
 	protected $messages = [
-        'name.required' => 'Your name is required',
-        'email.required' => 'Your email address is required',
-        'subject.required' => 'The subject title is required',
-        'message.required' => 'The message is required',
+        'name.required' => 'Your full name is required*',
+        'email.required' => 'Your email address is required*',
+        'subject.required' => 'The subject of your message is required*',
+        'message.required' => 'The real message is required*',
     ];
 
     public function mount()
@@ -85,7 +85,7 @@ class ContactUs extends Component
 			'subject'=>$this->subject,
 			'message'=>$this->message,
 		]);
-        Mail::send('email',[
+        Mail::send('email.contact',[
             'name' => clean($this->name),
             'email' => clean($this->email),
             'subject' => clean($this->subject),

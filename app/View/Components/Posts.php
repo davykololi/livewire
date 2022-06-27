@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use App\Models\Category;
+use App\Models\Post;
 use Illuminate\View\Component;
 
-class FrontendSidebar extends Component
+class Posts extends Component
 {
     /**
      * Create a new component instance.
@@ -24,8 +24,6 @@ class FrontendSidebar extends Component
      */
     public function render()
     {
-        $categories = categories();
-
-        return view('frontend.sidebar',compact('categories'));
+        return view('components.posts');
     }
 }

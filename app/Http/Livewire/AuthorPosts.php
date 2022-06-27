@@ -19,7 +19,7 @@ class AuthorPosts extends Component
     public function mount($slug)
     {
     	$user = User::where(['role'=>'author','slug'=>$slug])->firstOrFail();
-    	$this->posts = $user->posts()->where('is_published',true)->get();
+    	$this->posts = $user->posts()->where('is_published',true)->latest()->get();
     	
         $name = $user->name;
         $orgName = config('app.name');

@@ -41,7 +41,7 @@ class EditPost extends Component
 	{
 		$post = Post::findOrFail($id);
 		if($post){
-			$this->post_id = $id;
+			$this->post_id = $post->id;
 			$this->title = $post->title;
 			$this->description = $post->description;
 			$this->content = $post->content;
@@ -52,7 +52,7 @@ class EditPost extends Component
 			$this->is_published = true;
 			$this->published_date = $post->published_date;
 			$this->published_by = $post->published_by;
-			$this->user_id = $post->user->id;
+			$this->user_id = auth()->id;
 		}
 	}
 

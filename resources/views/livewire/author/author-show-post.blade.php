@@ -4,7 +4,7 @@
     	{{ $post->title }}
     </h1>
     <div class="">
-    	<img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-56 rounded-t-md">
+    	<img src="{{ $post->imageUrl()}}" alt="{{ $post->title }}" class="w-full h-56 rounded-t-md">
     	<p class="px-2">{{ $post->description }}</p>
     </div>
 </div>

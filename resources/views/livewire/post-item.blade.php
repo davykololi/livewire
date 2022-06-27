@@ -1,4 +1,4 @@
-        <main class="p-2 m-0 mt-2 lg:w-2/3 shadow-2xl rounded-md border border-red border-2 lg:ml-8 lg:mt-3 w-screen ml-2 mr-2 mb-2 bg-white mix-blend-normal">
+        <main class="p-2 m-0 mt-2 lg:w-2/3 shadow-2xl rounded-md lg:ml-8 lg:mt-3 w-screen ml-2 mr-2 mb-2 bg-white mix-blend-normal">
             <article class="lg:ml-6 mx-auto">
                 <figure>
                     <a href="{{ route('post-detail', ['slug' => $post->slug]) }}">
@@ -11,7 +11,10 @@
                     </figcaption>
                 </figure>
                 <div class="my-2 justify-between inline-flex">
-                    <span>{{ $post->user->name }}</span> <span>{{ $post->created_at }}</span> 
+                    <span>
+                        <a href="{{ route('author.posts',['slug'=>$post->user->slug]) }}">{{ $post->user->name }}</a> 
+                    </span> 
+                    <span>{{ $post->created_at }}</span> 
                     @if(!empty($post->comments))
                     <span>{{ $post->comments->count() }} comments</span>
                         @endif

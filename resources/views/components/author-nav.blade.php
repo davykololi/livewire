@@ -1,4 +1,4 @@
-<nav x-data="{ isOpen: false }" @keydown.escape="isOpen = false" class="z-10 flex flex-wrap justify-between w-full p-4 shadow-md">
+<nav x-data="{ isOpen: false }" @keydown.escape="isOpen = false" class="z-10 flex flex-wrap justify-between w-full p-4 shadow-md space-x-8">
     <div class="mr-6 text-xl font-bold">
         <a href="{{ route('home') }}"
         class="grid grid-cols-3 gap-1 transition duration-500 hover:text-purple-500">

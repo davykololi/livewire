@@ -22,12 +22,12 @@
 
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-white lg:bg-gray-100">
         <x-nav/>
-        <div class="bg-white lg:bg-white">
+        <div>
             {{ $slot }}
-            <livewire:front.blog-newsletter/>
         </div>
+        <livewire:front.blog-newsletter/>
         <x-frontend-footer/>
         @livewireScripts
         <!-- Scripts -->

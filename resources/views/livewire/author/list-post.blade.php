@@ -24,9 +24,7 @@
                 @foreach ($posts as $post)
                 <tr class="table-row px-2 border-b border-gray-200 hover:bg-gray-100">
                     <td class="py-4">{{ $post->category->name }}</td>
-                    <td>
-                        {{ ucwords($post->title) }}
-                    </td>
+                    <td>{{ ucwords($post->title) }}</td>
                     <td class="text-center">
                         {{ $post->is_published ? "Published" : "Pending" }}
                     </td>
