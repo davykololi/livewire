@@ -2,3 +2,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'flowbite';
+
+@layer base { 
+	h1 { @apply uppercase } 
+	 
+}
+
+@layer components {
+	.nav-a-left {
+		@apply mx-4 text-lg hover:text-indigo-500 uppercase font-extrabold;
+	}
+
+	.nav-a-right {
+		@apply mx-4 text-lg hover:text-indigo-500;
+	} 
+}

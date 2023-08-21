@@ -29,8 +29,8 @@ class RedirectIfAuthenticated
                 return redirect('editor/dashboard');
             } elseif(Auth::guard($guard)->check() && $user->isAuthor()){
                 return redirect('author/dashboard');
-            } elseif(Auth::guard($guard)->check() && $user->isUser()) {
-                return redirect('user/dashboard');
+            } elseif(Auth::guard($guard)->check() && $user->isVisitor()) {
+                return redirect('/');
             }
         }
 

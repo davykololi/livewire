@@ -25,8 +25,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-
         /* define an admin user role */
         Gate::define('isAdmin',function(User $user){
             return $user->role == 'admin';
@@ -43,8 +41,8 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         /* define an admin user role */
-        Gate::define('isUser',function(User $user){
-            return $user->role == 'user';
+        Gate::define('isVisitor',function(User $user){
+            return $user->role == 'visitor';
         });
 
         Gate::define('create-post', function (User $user, Post $post) {

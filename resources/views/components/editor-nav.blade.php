@@ -22,7 +22,7 @@
         <ul class="items-center justify-start flex-1 pt-4 space-y-4 lg:pt-0 list-reset lg:flex lg:space-y-0">
             @can('isEditor')
             <li class="py-2 md:py-0">
-                <a href="{{ url('editor/posts/{$post->id}/edit') }}" class="mx-4 text-lg hover:text-indigo-500">Create</a>
+                <a href="{{ url('/') }}" class="mx-4 text-lg hover:text-indigo-500">Create</a>
             </li>
             @endcan
         </ul>
@@ -68,7 +68,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log out') }}
+                                <span class="font-bold text-red-800 lg:hover:text-red-500">{{ __('Logout') }}</span>
                             </x-dropdown-link>
                         </form>
                     </x-slot>

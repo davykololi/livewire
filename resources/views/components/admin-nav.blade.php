@@ -78,7 +78,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log out') }}
+                                <span class="font-bold text-red-800 lg:hover:text-red-500">{{ __('Logout') }}</span>
                             </x-dropdown-link>
                         </form>
                     </x-slot>

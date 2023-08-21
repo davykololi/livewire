@@ -15,7 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-    ]);
+    ])
+    .copy('node_modules/flowbite/dist/flowbite.js', 'public/js')
+    .copy('node_modules/flowbite/dist/datepicker.js', 'public/js');
 
 if (mix.inProduction()) {
     mix.version();

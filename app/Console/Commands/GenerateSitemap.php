@@ -66,7 +66,7 @@ class GenerateSitemap extends Command
 
         $users = User::with('posts')->whereRole('author')->get();
         foreach($users as $user){
-            $sitemap->add(Url::create('/post-author/'.$user->slug));
+            $sitemap->add(Url::create('/author-posts/'.$user->slug));
         }
         
         $sitemap->writeToFile(public_path('sitemap.xml')); 

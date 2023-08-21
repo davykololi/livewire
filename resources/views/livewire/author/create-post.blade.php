@@ -1,13 +1,13 @@
 <div class="p-4 mx-auto mt-2 bg-gray-100 md:p-4 md:w-full md:mt-0 bg-pink-300 rounded-md">
     <h1 class="text-white text-xl font-semibold uppercase text-white">New post</h1>
     @can('isAuthor')
-        <div class="mb-5 text-right">
-            <a href="{{ url('author/posts') }}" class="px-4 py-0 text-white text-center bg-blue-600 rounded-full shadow-lg uppercase font-extrabold border-2 hover:bg-purple-500 inline-flex focus:outline-none disabled:opacity-100">
+        <div class="p-3 text-right">
+            <a href="{{ url('author/posts') }}" class="px-4 py-0 text-white text-center bg-blue-600 rounded-full shadow-lg uppercase font-extrabold border-2 hover:bg-purple-500 inline-flex focus:outline-none disabled:opacity-100" data-turbolinks-action="replace">
             	Back
             </a>
         </div>
     @endcan
-    <form wire:submit.prevent="save" method="post" enctype="multipart/form-data">
+    <form wire:submit.prevent="save" enctype="multipart/form-data">
         @csrf
         <div class="overflow-hidden bg-white rounded-md shadow">
             <div class="px-4 py-3 space-y-8 sm:p-6">
@@ -53,14 +53,20 @@
                         <x-jet-input-error for="category_id"/>
                     </div>
                     <div class="col-span-6 sm:col-span-3">
-                        <x-jet-label for="tags" class="block text-sm font-medium text-gray-700 font-bold">{{ __("Tags") }}</x-jet-label>
-                        {!! Form::select('tags[]',$tags,old('tags'),['class'=>'p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-full','multiple'=>'multiple']) !!}
+                        <x-jet-label for="tags" class="block text-sm font-medium text-gray-700 font-bold">
+                            {{ __("Tags") }}
+                        </x-jet-label>
+                        <select wire:model ="tags=[]" class="form-multiselect p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-full" multiple>
+                            @foreach($tags as $tag['id'] => $tag['name'])
+                            <option value="{{ $tag['id'] }}">{{ $tag['name'] }}</option>
+                            @endforeach
+                        </select>
                         <x-jet-input-error for="tags"/>
                     </div>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col" wire:ignore>
                     <x-jet-label for="content" class="font-bold">{{ __("Content") }}</x-jet-label>
-                    <textarea id="content" rows="4" wire:model="content" class="border-gray-300 rounded-sm form-textarea" placeholder="Content">
+                    <textarea rows="4" wire:model="content" name="content" id="summary-ckeditor" class="border-gray-300 rounded-sm form-textarea">
                     </textarea>
                     <x-jet-input-error for="content"/>
                 </div>
@@ -87,4 +93,3 @@
         </div>
     </form>
 </div>
-

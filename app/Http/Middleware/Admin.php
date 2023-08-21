@@ -32,8 +32,8 @@ class Admin
             return redirect('author/dashboard');
         }
 
-        if ($check && $user->isUser()) {
-            return redirect('user/dashboard');
+        if ($check && $user->isVisitor()) {
+            return redirect('/');
         }
 
         if ($check && $user->isAdmin()) {

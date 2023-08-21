@@ -2,12 +2,12 @@
     <h1 class="text-xl font-semibold uppercase text-white">Edit post</h1>
     @can('isAuthor')
         <div class="mb-5 text-right">
-            <a href="{{ url('author/posts') }}" class="px-4 py-0 text-white text-center bg-blue-400 rounded-full shadow-lg uppercase font-extrabold border-2 hover:bg-purple-500">
+            <a href="{{ url('author/posts') }}" class="px-4 py-0 text-white text-center bg-blue-400 rounded-full shadow-lg uppercase font-extrabold border-2 hover:bg-purple-500" data-turbolinks-action="replace">
                 Back
             </a>
         </div>
     @endcan
-    <form wire:submit.prevent="update" method="post" enctype="multipart/form-data">
+    <form wire:submit.prevent="update" enctype="multipart/form-data">
         @csrf
         <input type="hidden" wire:model="post_id">
         <div class="overflow-hidden bg-white rounded-md shadow">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <x-jet-label for="image" class="font-bold mt-2">{{ __("Image") }}</x-jet-label>
-                        <x-jet-input type="file" id="image" wire:model="image" accept="jpg,png,gif" class="w-full"/>
+                        <x-jet-input type="file" id="image" wire:model="image" class="w-full"/>
                         <x-jet-input-error for="image"/>
                     </div>
                 </div>
@@ -56,14 +56,20 @@
                         <x-jet-input-error for="category_id"/>
                     </div>
                     <div class="col-span-6 sm:col-span-3">
-                        <x-jet-label for="tags" class="block text-sm font-medium text-gray-700 font-bold">{{ __("Tags") }}</x-jet-label>
-                        {!! Form::select('tags[]',$tags,old('tags'),['class'=>'form-control','multiple'=>'multiple']) !!}
-                        <x-jet-input-error for="tags"/>
+                        <x-jet-label for="tags[]" class="block text-sm font-medium text-gray-700 font-bold">
+                            {{ __("Tags") }}
+                        </x-jet-label>
+                        <select name="tags[]" class="form-multiselect p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline w-full" multiple>
+                            @foreach($tags as $tag['id'] => $tag['name'])
+                            <option value="{{ $tag['id'] }}">{{ $tag['name'] }}</option>
+                            @endforeach
+                        </select>
+                        <x-jet-input-error for="tags[]"/>
                     </div>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col" wire:ignore>
                     <x-jet-label for="content" class="font-bold">{{ __("Content") }}</x-jet-label>
-                    <textarea id="content" rows="4" wire:model="content" class="border-gray-300 rounded-sm form-textarea">
+                    <textarea id="summary-ckeditor" rows="4" wire:model="content" class="border-gray-300 rounded-sm form-textarea">
                     </textarea>
                     <x-jet-input-error for="content"/>
                 </div>
@@ -77,8 +83,10 @@
                         <x-jet-input-error for="keywords"/>
                     </div>
                     <div class="col-span-6 mt-4 sm:col-span-1">
-                        <x-jet-label class="text-sm font-medium text-gray-700 font-bold">
-                        <x-jet-input wire:click="togglePublished" type="checkbox" class="form-checkbox"/>{{ __("Publish") }}</x-jet-label>
+                        <x-jet-label class="text-sm font-medium text-gray-700">
+                            <x-jet-input wire:model="is_published" type="checkbox" class="form-checkbox" />
+                            {{ __("Publish") }}
+                        </x-jet-label>
                         <x-jet-input-error for="is_published" />
                     </div>
                 </div>

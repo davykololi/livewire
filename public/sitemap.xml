@@ -1,45 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>http://localhost:8888</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
     <url>
         <loc>http://localhost:8888/about-us</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
     <url>
         <loc>http://localhost:8888/contact-us</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
     <url>
-        <loc>http://localhost:8888/categories/laravel</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <loc>http://localhost:8888/categories/veniam-at-repellat-repellat-autem-omnis-fugiat-dignissimos</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
     <url>
-        <loc>http://localhost:8888/tags/frontend</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <loc>http://localhost:8888/categories/delectus-ut-nisi-ut-nisi-sed-quod-facilis-omnis-odio</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
     <url>
-        <loc>http://localhost:8888/tags/backend</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <loc>http://localhost:8888/categories/nihil-numquam-delectus-minus-molestiae-qui-ipsam-ea-ipsa-voluptatem</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
     <url>
-        <loc>http://localhost:8888/post-author/mercy-wamalwa</loc>
-        <lastmod>2022-03-17T09:09:25+00:00</lastmod>
+        <loc>http://localhost:8888/categories/iusto-alias-numquam-ad-quo-nisi-dolor-excepturi-qui</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-    </url>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/autem-itaque-cum-ut-consequuntur-quasi-odio-totam-dolor-qui-veniam</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/facilis-ipsam-eligendi-provident-ipsum-dolores-neque</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/ut-illo-quam-ipsum-qui-provident-quia-qui-eius-enim</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/quibusdam-consequatur-labore-est-error-quo-voluptatum</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/ullam-iure-dolorem-adipisci-voluptas-error-laboriosam-rem-earum-assumenda-consectetur-est-in-illum-quidem</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/sit-quo-amet-rerum-consectetur-adipisci-nam-et</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/consequuntur-facere-perferendis-et-sequi-enim-inventore-provident</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/perferendis-ut-maiores-nobis-consequuntur-repellat-ratione-similique-exercitationem-quibusdam-nobis</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/similique-unde-sunt-nisi-et-vitae-et-et-necessitatibus</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/et-mollitia-quasi-est-debitis-ut-illum-molestiae</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/velit-voluptates-consequatur-ipsum-eius-soluta-maxime-qui-molestiae-voluptatem-quis-distinctio-itaque-inventore</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/est-itaque-repellat-consequatur-cum-non-tenetur-illo-rerum-fugit-molestiae-minus</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/voluptatem-dolorem-assumenda-occaecati-minima-eveniet-ab-ea-tenetur-odit-hic</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/ea-veniam-dicta-repudiandae-assumenda-veniam-debitis-quibusdam-odio-et-labore-cumque-dolorem-deserunt</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/et-veniam-sed-qui-hic-nam-doloremque-expedita-omnis-est</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/categories/reprehenderit-qui-deserunt-consequuntur-eveniet-laborum-placeat-quis-asperiores-pariatur-maxime</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/article/kololi-david-for-prezzo</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/article/raila-odinga-for-prezzo</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8888/author-posts/mercy-mulongo</loc>
+        <lastmod>2022-12-08T19:38:52+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
 </urlset>

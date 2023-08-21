@@ -6,7 +6,7 @@
             <div class="col-span-2">{{ config('app.name') }}</div>
         </a>
     </div>
-    <button x-on:click="isOpen = !isOpen" type="button" class="px-2 lg:hidden"
+    <button @click="isOpen = !isOpen" type="submit" class="px-2 lg:hidden"
         :class="{ 'transition transform-180': isOpen }">
         <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path x-show="isOpen"
@@ -68,7 +68,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log out') }}
+                                <span class="font-bold text-red-800 lg:hover:text-red-500">{{ __('Logout') }}</span>
                             </x-dropdown-link>
                         </form>
                     </x-slot>

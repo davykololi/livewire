@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Post;
 use App\Models\Comment;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,13 +20,14 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use  Sluggable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name','role','email','password',];
+    protected $fillable = ['name','role','email','slug','password',];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -57,6 +59,15 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
+    }
+
     public function isAdmin()
     {
         return $this->role === 'admin';
@@ -72,9 +83,9 @@ class User extends Authenticatable
         return $this->role === 'author';
     }
 
-    public function isUser()
+    public function isVisitor()
     {
-        return $this->role === 'user';
+        return $this->role === 'visitor';
     }
 
     /**

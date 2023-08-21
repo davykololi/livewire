@@ -1,14 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\ShowPosts;
-use App\Http\Livewire\Posts;
-use App\Http\Livewire\Detail;
-use App\Http\Livewire\CategoryPosts;
-use App\Http\Livewire\TagPosts;
-use App\Http\Livewire\AuthorPosts;
-use App\Http\Livewire\Front\AboutUs;
-use App\Http\Livewire\Front\ContactUs;
+use App\Http\Livewire\Frondend\ShowPosts;
+use App\Http\Livewire\Frondend\Detail;
+use App\Http\Livewire\Frondend\CategoryPosts;
+use App\Http\Livewire\Frondend\TagPosts;
+use App\Http\Livewire\Frondend\AuthorPosts;
+use App\Http\Livewire\Frondend\AboutUs;
+use App\Http\Livewire\Frondend\ContactUs;
 use App\Http\Livewire\Admin\AdminDashboard;
 use App\Http\Livewire\Admin\Authors;
 use App\Http\Livewire\Admin\Categories;
@@ -19,7 +18,6 @@ use App\Http\Livewire\Author\EditPost;
 use App\Http\Livewire\Author\ListPost;
 use App\Http\Livewire\Author\AuthorShowPost;
 use App\Http\Livewire\Editor\EditorDashboard;
-
 use App\Http\Livewire\Dashboard\FeaturedImageUpload;
 use App\Http\Livewire\Dashboard\NewPost;
 
@@ -34,21 +32,19 @@ use App\Http\Livewire\Dashboard\NewPost;
 |
 */
 
-Route::get('/', ShowPosts::class)->name('home');
+Route::get('/', [ShowPosts::class,'__invoke'])->name('home');
 Route::get('categories/{slug}', CategoryPosts::class)->name('category');
 Route::get('/tags/{slug}', TagPosts::class)->name('tag');
 Route::get('/author-posts/{slug}', AuthorPosts::class)->name('author.posts');
 Route::get('/article/{slug}', Detail::class)->name('post-detail');
-Route::get('/about-us', [AboutUs::class,'__invoke'])->name('about.us');
-Route::get('/contact-us', ContactUs::class)->name('contact.us');
+Route::get('/about-us', [AboutUs::class,'__invoke'])->name('about');
+Route::get('/contact-us', ContactUs::class)->name('contact');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum','admin']], function () {
 	Route::get('/dashboard',[AdminDashboard::class,'__invoke']);//Admin Dashboard
 	Route::get('/authors',[Authors::class,'__invoke']);//Authors
 	Route::get('/categories',Categories::class);//Categories
 	Route::get('/tags',Tags::class);//Categories
-
-    Route::get('/', Posts::class)->name('dashboard');
 
     Route::get('post/add', NewPost::class)->name('new-post');
 
@@ -69,3 +65,6 @@ Route::group(['prefix' => 'editor', 'middleware' => ['auth:sanctum','editor']], 
 });
 
 Route::impersonate();
+
+// In routes/web.php
+Route::feeds();

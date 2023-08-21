@@ -37,4 +37,14 @@ class Tag extends Model
     {
         return $query->with('posts');
     }
+
+    public function name():Attribute
+    {
+        return new Attribute(set:fn ($value) => ucwords($value));
+    }
+
+    public function desc():Attribute
+    {
+        return new Attribute(set:fn ($value) => ucwords($value));
+    }
 }

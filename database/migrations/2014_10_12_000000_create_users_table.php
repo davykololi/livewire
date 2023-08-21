@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('slug',200)->unique();
             $table->enum('role',['admin','editor','author','user'])->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('slug',200)->unique();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

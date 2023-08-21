@@ -1,10 +1,10 @@
 <footer class="bg-red-900">
-    <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4 border-t-8 border-white">
+    <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
         <div>
             <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Company</h2>
             <ul class="text-gray-300">
                 <li class="mb-4">
-                    <a href="{{ route('about.us') }}" class=" hover:underline">About</a>
+                    <a href="{{ route('about') }}" class=" hover:underline">About</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="hover:underline">Careers</a>
@@ -30,7 +30,7 @@
                     <a href="#" class="hover:underline">Facebook
                 </li>
                 <li class="mb-4">
-                    <a href="{{ route('contact.us') }}" class="hover:underline">Contact Us</a>
+                    <a href="{{ route('contact') }}" class="hover:underline">Contact Us</a>
                 </li>
             </ul>
         </div>

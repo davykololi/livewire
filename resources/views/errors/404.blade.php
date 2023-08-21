@@ -1,5 +1,40 @@
-@extends('errors::minimal')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name') }} - {{ __('Page Not Found') }}</title>
+    <!-- Fonts -->
+    @livewireStyles
+  </head>
+<body>
 
-@section('title', __('Not Found'))
-@section('code', '404')
-@section('message', __('Not Found'))
+<div class="h-screen w-screen bg-blue-600 flex justify-center content-center flex-wrap">
+  <p class="font-sans text-white error-text">404</p>
+</div>
+
+<div class="absolute w-screen bottom-0 mb-6 text-white text-center font-sans text-xl">
+  <span class="opacity-50">Take me back to</span>
+  <a class="border-b" href="https://tailwindcomponents.com">tailwindcomponents.com</a>
+</div>
+@livewireScripts
+<style>
+
+  * {
+    "Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  }
+
+    .error-text {
+      font-size: 130px;
+    }
+
+    @media (min-width: 768px) {
+      .error-text {
+        font-size: 220px;
+      }
+    }
+
+</style>
+</body>
+</html>

@@ -12,9 +12,8 @@ use Livewire\Component;
 class CreatePost extends Component
 {
 	use WithFileUploads;
-	public $title,$description,$content,$caption,$keywords,$image,$category_id,$categories,$tags;
+	public $title,$description,$content,$caption,$keywords,$image,$category_id,$categories,$tags=[];
 	public $success = false;
-	public $featured = false;
 	public $is_published = false;
 
     protected $rules = [
@@ -23,9 +22,9 @@ class CreatePost extends Component
             'content' => 'required|string|min:500',
             'caption' => 'required',
             'keywords' => 'required',
+            
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg,bmp|max:2048',
-            'category_id'   => 'required|exists:categories,id',
-            'tags'   => 'required|exists:tags,id',
+            'category_id'   => 'required|exists:categories,id',   
     ];
 
     protected $messages = [
@@ -35,16 +34,11 @@ class CreatePost extends Component
         'content.required' => 'The content is required',
         'image.required' => 'The featured image is required',
         'keywords.required' => 'The keywords are required',
-        'tags.required'   => 'The tags the article belongs to are required',
+        
         'category_id.required'   => 'The category the post belongs to is required',
         'min' => 'Value must be more than :min chars',
         'max' => 'Maximum value is 255 chars'
     ];
-
-	public function successfull()
-	{
-		$this->success = true;
-	}
 
 	public function save()
 	{
@@ -53,26 +47,21 @@ class CreatePost extends Component
 		$data['user_id'] = Auth::user()->id;
 		$data['category_id'] = $this->category_id;
 		$data['published_date'] = now();
-		$file_name = $this->image->store('files','public');
-		$data['image'] = $file_name;
+        $image = $this->image->store('images','public');
+		$data['image'] = $image;
+
 		$post = Post::create($data);
+		$post->tags()->sync(request($this->tags));
+		//Set Flash Message
+    	toastr()->success('Post Created Successfully!!');
 
-		if($post){
-			$post->tags()->sync($this->tags);
-			//Set Flash Message
-    		toastr()->success('Post Created Successfully!!');
-			$this->successfull();
-			$this->reset();
-
-			return redirect()->to('/author/posts');
-		}
-        
+		return redirect()->to('/author/posts');
 	}
 
     public function render()
     {
     	$this->categories = Category::all();
-    	$this->tags = Tag::all()->pluck('name','id');
+    	$this->tags = Tag::pluck('name','id')->toArray();
 
         return view('livewire.author.create-post')->layout('layouts.author');
     }
